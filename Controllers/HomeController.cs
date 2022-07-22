@@ -76,5 +76,29 @@ namespace MyFirstProject.Controllers
             }
         }
 
+        [HttpGet]
+        public JsonResult GetData()
+        {
+            // SaveData();
+
+            UserDataBaseEntities context = new UserDataBaseEntities();
+            var query = (from even in context.Evens
+                             select new
+                             {
+                                 Id = even.id,
+                                 Title = even.title,
+                                 Completed = even.completed
+                             })
+                .Union(from odd in context.Odds 
+                       select new {
+                           Id = odd.id,
+                           Title = odd.title,
+                           Completed = odd.completed
+                       }).ToList();
+            return Json(query, JsonRequestBehavior.AllowGet);
+            //  return View(employeeList);
+            // return View();s
+        }
+
     }
 }
