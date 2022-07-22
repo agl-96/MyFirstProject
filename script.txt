@@ -1,0 +1,10 @@
+CREATE DATABASE UserDataBase;
+
+create table Even(id int primary key, title varchar(40), completed varchar(15));
+create table Odd(id int primary key, title varchar(40), completed varchar(15));
+
+--Commit;
+
+select * from Even;
+select * from Odd;
+
