@@ -96,8 +96,6 @@ namespace MyFirstProject.Controllers
                            Completed = odd.completed
                        }).ToList();
             return Json(query, JsonRequestBehavior.AllowGet);
-            //  return View(employeeList);
-            // return View();s
         }
 
     }
